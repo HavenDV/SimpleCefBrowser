@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BrowserApplication": {
+      "commandName": "Project",
+      "commandLineArgs": "google.com test"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-﻿namespace BasicWebBrowse
+﻿namespace SimpleCefBrowser.Forms
 {
     partial class BrowserForm
     {
@@ -52,4 +52,3 @@
         #endregion
     }
 }
-

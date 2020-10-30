@@ -1,18 +1,11 @@
-﻿using CefSharp;
-using CefSharp.WinForms;
-using CefSharp.WinForms.Internals;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+﻿using System;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CefSharp;
+using CefSharp.WinForms;
+using SimpleCefBrowser.Extensions;
 
-namespace BasicWebBrowse
+namespace SimpleCefBrowser.Forms
 {
     public partial class BrowserForm : Form
     {
@@ -36,16 +29,16 @@ namespace BasicWebBrowse
 
         private void OnBrowserTitleChanged(object sender, TitleChangedEventArgs args)
         {
-            this.InvokeOnUiThreadIfRequired(() => {
+            this.InvokeIfRequired(_ => {
                 _title = args.Title;
                 RefreshWindowCaption();
-                }
+            }
             );
         }
 
         private void OnBrowserAddressChanged(object sender, AddressChangedEventArgs args)
         {
-            this.InvokeOnUiThreadIfRequired(() =>
+            this.InvokeIfRequired(_ =>
             {
                 _address = args.Address;
                 RefreshWindowCaption();
@@ -75,7 +68,7 @@ namespace BasicWebBrowse
                     }
                     catch (Exception e)
                     {
-                        _browser.LoadString(e.ToString(), "http://LoadException");
+                        _browser.GetBrowser().MainFrame.LoadHtml(e.ToString());
                     }
                 }
             }

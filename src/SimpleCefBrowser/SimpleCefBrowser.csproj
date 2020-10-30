@@ -7,13 +7,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
-    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
-    <RootNamespace>BasicWebBrowse</RootNamespace>
     <ApplicationIcon>Web.ico</ApplicationIcon>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.WinForms" Version="67.0.0" />
+    <PackageReference Include="CefSharp.WinForms" Version="85.3.130" />
   </ItemGroup>
 
 </Project>
