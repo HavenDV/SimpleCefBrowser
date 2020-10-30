@@ -56,8 +56,8 @@ namespace SimpleCefBrowser
 
             if (arguments.Length > 1)
             {
-                var TestForm = new FormTestSendMessage(browser);
-                TestForm.Show();
+                var testForm = new FormTestSendMessage(browser);
+                testForm.Show();
             }
 
             Application.Run(browser);

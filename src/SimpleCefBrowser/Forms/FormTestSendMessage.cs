@@ -6,33 +6,55 @@ namespace SimpleCefBrowser.Forms
 {
     public partial class FormTestSendMessage : Form
     {
-        private Form _theBrowserForm;
+        #region Properties
 
-        public FormTestSendMessage(Form theBrowserForm)
+        private Form BrowserForm { get; }
+
+        #endregion
+
+        #region Constructors
+
+        public FormTestSendMessage(Form browserForm)
         {
+            BrowserForm = browserForm ?? throw new ArgumentNullException(nameof(browserForm));
+
             InitializeComponent();
-            _theBrowserForm = theBrowserForm;
         }
+
+        #endregion
+
+        #region Methods
+
+        [DllImport("user32")]
+        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+
+        private void Send(string text, int type)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return;
+            }
+
+            Clipboard.SetText(text);
+
+            const int msg = 0x400;
+            SendMessage(BrowserForm.Handle, msg, type, type);
+        }
+
+        #endregion
+
+        #region Event Handlers
 
         private void buttonSend_Click(object sender, EventArgs e)
         {
-            string url = textBoxUrl.Text;
-            GCHandle GCH = GCHandle.Alloc(url, GCHandleType.Pinned);
-            IntPtr pUrl = GCH.AddrOfPinnedObject();
-            Clipboard.SetText(url);
-            int msg = 0x400;
-            SendMessage(_theBrowserForm.Handle, msg, IntPtr.Zero, IntPtr.Zero);// pUrl);
-            GCH.Free();
+            Send(textBoxUrl.Text, 0);
         }
 
-        [System.Runtime.InteropServices.DllImport("user32",
-                                              EntryPoint = "SendMessage",
-                                              ExactSpelling = false,
-                                              CharSet = CharSet.Auto,
-                                              SetLastError = true)]
-        public static extern int SendMessage(IntPtr hWnd,
-                                         int m,
-                                         IntPtr wParam,
-                                         IntPtr lParam);
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Send(richTextBox1.Text, 1);
+        }
+
+        #endregion
     }
 }
