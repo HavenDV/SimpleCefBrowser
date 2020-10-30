@@ -43,6 +43,7 @@
             this.textBoxUrl.Name = "textBoxUrl";
             this.textBoxUrl.Size = new System.Drawing.Size(888, 26);
             this.textBoxUrl.TabIndex = 0;
+            this.textBoxUrl.Text = "facebook.com";
             // 
             // buttonSend
             // 
@@ -53,7 +54,7 @@
             this.buttonSend.TabIndex = 1;
             this.buttonSend.Text = "Send";
             this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            this.buttonSend.Click += new System.EventHandler(this.ButtonSend_Click);
             // 
             // label1
             // 
@@ -79,7 +80,9 @@
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(843, 205);
             this.richTextBox1.TabIndex = 4;
-            this.richTextBox1.Text = "";
+            this.richTextBox1.Text = "document.querySelector(\"#email\").value = \"test@gmail.com\"\ndocument.querySelector(" +
+    "\"#pass\").value = \"password\"\ndocument.querySelector(\"button[name=\'login\']\").click" +
+    "()\n\n";
             // 
             // button1
             // 
@@ -90,7 +93,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Send";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // FormTestSendMessage
             // 

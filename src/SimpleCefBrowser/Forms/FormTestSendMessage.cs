@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using SimpleCefBrowser.Utilities;
 
 namespace SimpleCefBrowser.Forms
 {
@@ -23,36 +23,16 @@ namespace SimpleCefBrowser.Forms
 
         #endregion
 
-        #region Methods
-
-        [DllImport("user32")]
-        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
-
-        private void Send(string text, int type)
-        {
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                return;
-            }
-
-            Clipboard.SetText(text);
-
-            const int msg = 0x400;
-            SendMessage(BrowserForm.Handle, msg, type, type);
-        }
-
-        #endregion
-
         #region Event Handlers
 
-        private void buttonSend_Click(object sender, EventArgs e)
+        private void ButtonSend_Click(object sender, EventArgs e)
         {
-            Send(textBoxUrl.Text, 0);
+            InteractionOverSendMessage.Send(BrowserForm.Handle, textBoxUrl.Text, 0);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-            Send(richTextBox1.Text, 1);
+            InteractionOverSendMessage.Send(BrowserForm.Handle, richTextBox1.Text, 1);
         }
 
         #endregion
