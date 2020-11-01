@@ -89,7 +89,7 @@ namespace SimpleCefBrowser
                 assemblyName);
 
             return File.Exists(archSpecificPath)
-                ? Assembly.LoadFile(archSpecificPath)
+                ? Assembly.LoadFrom(archSpecificPath)
                 : null;
         }
 
