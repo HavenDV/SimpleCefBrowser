@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="CefSharp.WinForms" Version="85.3.130" />
+    <PackageReference Include="VCRuntime.CefSharp.140" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
