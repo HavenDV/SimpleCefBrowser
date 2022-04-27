@@ -9,11 +9,12 @@
     <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
     <ApplicationIcon>Web.ico</ApplicationIcon>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.WinForms" Version="85.3.130" />
-    <PackageReference Include="VCRuntime.CefSharp.140" Version="1.0.0" />
+    <PackageReference Include="CefSharp.WinForms" Version="100.0.230" />
+    <PackageReference Include="VCRuntime.CefSharp.140" Version="1.0.5" />
   </ItemGroup>
 
 </Project>
