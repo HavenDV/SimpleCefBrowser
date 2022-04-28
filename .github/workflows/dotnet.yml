@@ -7,6 +7,6 @@ jobs:
     uses: HavenDV/workflows/.github/workflows/dotnet_build-test-publish.yml@main
     with:
       os: windows-latest
-      asset-path1: SimpleCefBrowser/bin/Release/SimpleCefBrowser_net452.zip
+      asset-path1: src/SimpleCefBrowser/bin/Release/SimpleCefBrowser_net452.zip
       asset-name1: SimpleCefBrowser_net452.zip
       asset-content-type1: application/zip
