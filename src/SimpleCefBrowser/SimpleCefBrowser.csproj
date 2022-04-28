@@ -17,4 +17,8 @@
     <PackageReference Include="VCRuntime.CefSharp.140" Version="1.0.5" />
   </ItemGroup>
 
+  <Target Name="Release" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' AND '$(TargetDir)' != '' ">
+    <ZipDirectory SourceDirectory="$(TargetDir)" DestinationFile="$(TargetDir)../$(AssemblyName)_$(TargetFramework).zip" Overwrite="True" />
+  </Target>
+
 </Project>
