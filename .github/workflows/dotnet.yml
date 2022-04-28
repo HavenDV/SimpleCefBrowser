@@ -10,3 +10,7 @@ jobs:
       asset-path1: src/SimpleCefBrowser/bin/Release/SimpleCefBrowser_net452.zip
       asset-name1: SimpleCefBrowser_net452.zip
       asset-content-type1: application/zip
+      asset-path2: docs/VC_redist.x86.exe
+      asset-name2: VC_redist.x86.exe
+      asset-path3: docs/VC_redist.x64.exe
+      asset-name3: VC_redist.x64.exe
